@@ -698,7 +698,7 @@ public class LuaUnparser extends Visitor {
         break;
         // Unary
       case Lua.OP_NOT:
-        opStr = "not";
+        opStr = "not ";
         break;
       case Lua.OP_UNM:
         opStr = "-";
