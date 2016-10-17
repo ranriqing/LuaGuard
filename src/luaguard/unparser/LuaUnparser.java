@@ -672,10 +672,10 @@ public class LuaUnparser extends Visitor {
         break;
         // Logical
       case Lua.OP_OR: 
-        opStr = "and";
+        opStr = "or";
         break;
       case Lua.OP_AND:
-        opStr = "or";
+        opStr = "and";
         break;
         // Relational
       case Lua.OP_NEQ:
