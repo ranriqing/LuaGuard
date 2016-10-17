@@ -38,16 +38,16 @@ public class LuaUnparser extends Visitor {
   
     
   private PrintStream out;
-  private boolean isCompressed; // true if newlines should NOT be printed.
+  private boolean isCompressed = false; // true if newlines should NOT be printed.
 
   public LuaUnparser(PrintStream out) {
     this.out = out;
-    this.isCompressed = true;
+    // this.isCompressed = true;
   }
   
   public LuaUnparser(PrintStream out, boolean isCompressed) {
     this.out = out;
-    this.isCompressed = isCompressed;
+    // this.isCompressed = isCompressed;
   }
 
   /**
