@@ -35,11 +35,28 @@ public class VarRenamerObfuscator extends Obfuscator{
      * @param blacklist
      */
     public VarRenamerObfuscator(List<String> blacklist){
-        dict = new HashMap<>();
+        dict = new HashMap<String, String>();
         for (String blacklist1  : blacklist) {
             dict.put(blacklist1 , blacklist1 );
         }
     }
+	
+    /**
+     * Ignore name convert
+     * local bcd;
+     * abc.bcd or abc.bcd();
+     * patterns code
+     * @param var1
+     */
+    public void visit(Exp.FieldExp var1) {
+        var1.lhs.accept(this);
+        if(var1.isvarexp()){
+            // do nothing
+        }else{
+            this.visit(var1.name);
+        }
+    }
+
     /**
      * If meet a new name than check its name in the hashmap, if it exists,
      * then modify it.
