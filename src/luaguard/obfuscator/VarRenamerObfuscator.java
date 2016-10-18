@@ -21,8 +21,6 @@ import org.luaj.vm2.ast.Stat.LocalAssign;
 public class VarRenamerObfuscator extends Obfuscator{
     //function name dictionary
     private HashMap<String, String> dict;
-    //fobfuscator name base
-    private String base = "OTOSOTE";
     
     /**
      * Constructor of the variable renamer obfuscator
@@ -95,7 +93,7 @@ public class VarRenamerObfuscator extends Obfuscator{
                 tempname = dict.get(oldName);
             }else{
                 //create new entry
-                tempname = base + (dict.size() * 2 + 1);
+                tempname = (new RandomName()).generateVarName(this.dict);
                 //put the new hashmap entry
                 dict.put(oldName, tempname);
             }
